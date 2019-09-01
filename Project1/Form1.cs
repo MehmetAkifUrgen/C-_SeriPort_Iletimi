@@ -15,7 +15,7 @@ namespace Project1
 {
     public partial class Form1 : Form
     {
-        private string data;
+        private string data;//okunan veri için 
         
 
         public Form1()
@@ -116,7 +116,24 @@ namespace Project1
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Henüz Etkin Değil");
+            System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi"); 
+        }
+
+        private void baudComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!serialPort1.IsOpen)
+            {
+                serialPort1.BaudRate =Convert.ToInt32(baudComboBox.SelectedItem.ToString()); //baudrate de hız seçme
+            }
+
+        }
+
+        private void dataComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!serialPort1.IsOpen)
+            {
+                serialPort1.DataBits = Convert.ToInt32(dataComboBox.SelectedItem.ToString()); //databit için bit seçme
+            }
         }
     }
 }

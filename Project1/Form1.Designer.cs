@@ -41,15 +41,20 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.updateButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.baudComboBox = new System.Windows.Forms.ComboBox();
+            this.dataComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // baglanButton
             // 
-            this.baglanButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.baglanButton.BackColor = System.Drawing.Color.LightSeaGreen;
             this.baglanButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.baglanButton.ForeColor = System.Drawing.Color.Black;
-            this.baglanButton.Location = new System.Drawing.Point(31, 107);
+            this.baglanButton.Location = new System.Drawing.Point(31, 213);
             this.baglanButton.Name = "baglanButton";
             this.baglanButton.Padding = new System.Windows.Forms.Padding(5);
             this.baglanButton.Size = new System.Drawing.Size(132, 70);
@@ -60,18 +65,21 @@
             // 
             // bagkesButton
             // 
+            this.bagkesButton.BackColor = System.Drawing.Color.Tomato;
             this.bagkesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.bagkesButton.Location = new System.Drawing.Point(31, 253);
+            this.bagkesButton.ForeColor = System.Drawing.SystemColors.Window;
+            this.bagkesButton.Location = new System.Drawing.Point(31, 349);
             this.bagkesButton.Name = "bagkesButton";
             this.bagkesButton.Size = new System.Drawing.Size(132, 70);
             this.bagkesButton.TabIndex = 1;
             this.bagkesButton.Text = "DISCONNECT";
-            this.bagkesButton.UseVisualStyleBackColor = true;
+            this.bagkesButton.UseVisualStyleBackColor = false;
             this.bagkesButton.Click += new System.EventHandler(this.bagkesButton_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(31, 56);
             this.comboBox1.Name = "comboBox1";
@@ -81,29 +89,30 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(551, 56);
+            this.textBox1.Location = new System.Drawing.Point(603, 48);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 121);
+            this.textBox1.Size = new System.Drawing.Size(130, 152);
             this.textBox1.TabIndex = 3;
             // 
             // testButton
             // 
+            this.testButton.BackColor = System.Drawing.Color.LightGreen;
             this.testButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.testButton.Location = new System.Drawing.Point(551, 208);
+            this.testButton.Location = new System.Drawing.Point(603, 283);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(130, 44);
             this.testButton.TabIndex = 4;
             this.testButton.Text = "SEND";
-            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.UseVisualStyleBackColor = false;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(548, 250);
+            this.label1.Location = new System.Drawing.Point(895, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 7;
@@ -112,19 +121,19 @@
             // 
             this.progressBar1.BackColor = System.Drawing.Color.White;
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(31, 208);
+            this.progressBar1.Location = new System.Drawing.Point(31, 304);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(132, 23);
             this.progressBar1.TabIndex = 9;
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.LightGray;
+            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(259, 148);
+            this.textBox2.Location = new System.Drawing.Point(285, 198);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 175);
+            this.textBox2.Size = new System.Drawing.Size(201, 221);
             this.textBox2.TabIndex = 10;
             this.textBox2.TextChanged += new System.EventHandler(this.Form1_Load);
             // 
@@ -134,31 +143,98 @@
             // 
             // updateButton
             // 
+            this.updateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.updateButton.Location = new System.Drawing.Point(551, 275);
+            this.updateButton.Location = new System.Drawing.Point(603, 371);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(130, 48);
             this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Check Update";
-            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.UseVisualStyleBackColor = false;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(259, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(285, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(206, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // baudComboBox
+            // 
+            this.baudComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.baudComboBox.FormattingEnabled = true;
+            this.baudComboBox.Items.AddRange(new object[] {
+            "2400",
+            "4800",
+            "9600",
+            "19200"});
+            this.baudComboBox.Location = new System.Drawing.Point(31, 105);
+            this.baudComboBox.Name = "baudComboBox";
+            this.baudComboBox.Size = new System.Drawing.Size(132, 21);
+            this.baudComboBox.TabIndex = 13;
+            this.baudComboBox.SelectedIndexChanged += new System.EventHandler(this.baudComboBox_SelectedIndexChanged);
+            // 
+            // dataComboBox
+            // 
+            this.dataComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataComboBox.FormattingEnabled = true;
+            this.dataComboBox.Items.AddRange(new object[] {
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.dataComboBox.Location = new System.Drawing.Point(31, 152);
+            this.dataComboBox.Name = "dataComboBox";
+            this.dataComboBox.Size = new System.Drawing.Size(132, 21);
+            this.dataComboBox.TabIndex = 14;
+            this.dataComboBox.SelectedIndexChanged += new System.EventHandler(this.dataComboBox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(27, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Seri Portlar";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(27, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Baud Rates";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(27, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Data Bits";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(718, 361);
+            this.BackColor = System.Drawing.Color.RosyBrown;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(761, 438);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataComboBox);
+            this.Controls.Add(this.baudComboBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.textBox2);
@@ -170,6 +246,7 @@
             this.Controls.Add(this.bagkesButton);
             this.Controls.Add(this.baglanButton);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.TextChanged += new System.EventHandler(this.DisplayText);
@@ -192,6 +269,11 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox baudComboBox;
+        private System.Windows.Forms.ComboBox dataComboBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
