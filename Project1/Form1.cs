@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.IO.Ports;// Seri Port için kütüphane
-using System.Threading;
+using System.Net;
+using System.Reflection;
 
 namespace Project1
 {
     public partial class Form1 : Form
     {
         private string data;//okunan veri için 
+        
         
 
         public Form1()
@@ -74,7 +76,7 @@ namespace Project1
             {
                 serialPort1.Open();
                 progressBar1.Value = 100;
-                
+                comboBox1.Enabled = true;
                 baglanButton.Enabled = false;
                 bagkesButton.Enabled = true;
                 testButton.Enabled = true;
@@ -116,7 +118,17 @@ namespace Project1
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi"); 
+            WebRequest wr = WebRequest.Create(new Uri("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Seri%20Port%20Iletimi%20v2.0/Debug/readMe.txt"));
+            WebResponse ws = wr.GetResponse();
+            StreamReader sr = new StreamReader(ws.GetResponseStream());
+            string currentversion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string newversion = sr.ReadToEnd();
+            if (currentversion.Contains(newversion))
+            { MessageBox.Show("Sürüm Güncel"); }
+            else
+            { MessageBox.Show("Yeni Sürüm var!");
+                System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/raw/master/Seri%20Port%20Iletimi%20v2.0/Debug/Seri%20Port%20Iletimi%20v2.0.msi");} 
+
         }
 
         private void baudComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,12 +140,6 @@ namespace Project1
 
         }
 
-        private void dataComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!serialPort1.IsOpen)
-            {
-                serialPort1.DataBits = Convert.ToInt32(dataComboBox.SelectedItem.ToString()); //databit için bit seçme
-            }
-        }
+        
     }
 }
