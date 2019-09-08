@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.IO.Ports;// Seri Port için kütüphane
 using System.Net;
 using System.Reflection;
+using System.Xml;
+using HtmlAgilityPack;
 
 namespace Project1
 {
@@ -118,16 +120,19 @@ namespace Project1
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            WebRequest wr = WebRequest.Create(new Uri("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Seri%20Port%20Iletimi%20v2.0/Debug/readMe.txt"));
-            WebResponse ws = wr.GetResponse();
-            StreamReader sr = new StreamReader(ws.GetResponseStream());
-            string currentversion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            string newversion = sr.ReadToEnd();
-            if (currentversion.Contains(newversion))
-            { MessageBox.Show("Sürüm Güncel"); }
-            else
-            { MessageBox.Show("Yeni Sürüm var!");
-                System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/raw/master/Seri%20Port%20Iletimi%20v2.0/Debug/Seri%20Port%20Iletimi%20v2.0.msi");} 
+            var html = @"https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Seri%20Port%20Iletimi%20v2.0/Debug/readMe.txt";
+            HtmlWeb web = new HtmlWeb();
+            var htmlDoc = web.Load(html);
+            var node = htmlDoc.DocumentNode.SelectSingleNode("//td[@id='LC1']");
+            
+            string ver = "1.0";
+
+
+            if (node.OuterHtml.Contains(ver))
+             { MessageBox.Show("Sürüm Güncel"); }
+             else
+             { MessageBox.Show("Yeni Sürüm var!");
+                 System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/raw/master/Seri%20Port%20Iletimi%20v2.0/Debug/Seri%20Port%20Iletimi%20v2.0.msi");} 
 
         }
 
