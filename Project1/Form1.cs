@@ -13,6 +13,10 @@ using System.Net;
 using System.Reflection;
 using System.Xml;
 using HtmlAgilityPack;
+using LibGit2Sharp;
+
+
+
 
 namespace Project1
 {
@@ -124,17 +128,45 @@ namespace Project1
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
             var node = htmlDoc.DocumentNode.SelectSingleNode("//td[@id='LC1']");
-            
-            string ver = "1.0";
 
+            string ver = "1.0";
+            
 
             if (node.OuterHtml.Contains(ver))
-             { MessageBox.Show("Sürüm Güncel"); }
-             else
-             { MessageBox.Show("Yeni Sürüm var!");
-                 System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/raw/master/Seri%20Port%20Iletimi%20v2.0/Debug/Seri%20Port%20Iletimi%20v2.0.msi");} 
+            { MessageBox.Show("Sürüm Güncel"); }
+            else
+            {
+                MessageBox.Show("Yeni Sürüm var!");
+                ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                WebClient webClient = new WebClient();
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+               // webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                Uri uri = new Uri("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Project1/bin/Debug/Project1.exe");
+                try
+                {
+                    webClient.DownloadFileAsync(uri, @"C:\SeriPortIletimi\Project1.exe");
+                }
+                catch (Exception ex)
+                {
 
+                    Console.WriteLine("Download Error :" + ex.Message.ToString());
+                }
+
+
+                //client.DownloadFile("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Project1/bin/Debug/Project1.exe", @"C:\Program Files (x86)\Seri Port Iletimi v2.0");
+                //System.Diagnostics.Process.Start("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/raw/master/Seri%20Port%20Iletimi%20v2.0/Debug/Seri%20Port%20Iletimi%20v2.0.msi");
+                // Repository.Clone("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Project1/bin/Debug/Project1.exe\\git", @"C:\SeriPortIletimi");
+            }
         }
+       /* private static void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            MessageBox.Show(e.ProgressPercentage + " %");
+        }*/
+        private static void Completed(object sender, AsyncCompletedEventArgs e)
+        {
+            MessageBox.Show("Download completed!");
+        }
+
 
         private void baudComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
