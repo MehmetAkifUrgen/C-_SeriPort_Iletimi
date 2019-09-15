@@ -104,6 +104,7 @@ namespace Project1
                 progressBar1.Value = 0;
                 bagkesButton.Enabled = false;
                 baglanButton.Enabled = true;
+                MessageBox.Show("Bağlantı Kesildi.");
                 
             }
             catch (Exception err)
@@ -144,7 +145,11 @@ namespace Project1
                 Uri uri = new Uri("https://github.com/MehmetAkifUrgen/C-_SeriPort_Iletimi/blob/master/Project1/bin/Debug/Project1.exe");
                 try
                 {
-                    webClient.DownloadFileAsync(uri, @"C:\SeriPortIletimi\Project1.exe");
+                    webClient.DownloadFileAsync(uri, @"C:\Program Files (x86)\SeriPortIletimi\Project1.exe");
+                    Form1 form1 = new Form1();
+                    Hide();
+                    form1.Close();
+
                 }
                 catch (Exception ex)
                 {
@@ -165,6 +170,7 @@ namespace Project1
         private static void Completed(object sender, AsyncCompletedEventArgs e)
         {
             MessageBox.Show("Download completed!");
+            
         }
 
 

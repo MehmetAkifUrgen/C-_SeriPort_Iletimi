@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YtXTvIC/Fi4k6bq0A6YMIrEbnoerEsYT4s34Ens57xU=</dsig:DigestValue>
+        <dsig:DigestValue>vbfywRhelJH6AIPGnTRzf1ajQrci3iFaXgc1SjJtBvc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1328,13 +1328,13 @@
       <dsig:DigestValue>bLDocB9LEszeIoLa7IDvC788id+sUqlp0LFgPDdUIGI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LibGit2Sharp.dll.config" size="249">
+  <file name="LibGit2Sharp.dll.config" size="253">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>l/c3CI5cGLvgdR2nJeqsFjQZ0wdDAMS7E60PWjkYYlc=</dsig:DigestValue>
+      <dsig:DigestValue>cFJVgJMjY5JMSGruajnjpdrWudtdkiJ2gvqK25zoJ/g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Project1.exe.config" size="18072">
