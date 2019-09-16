@@ -88,6 +88,7 @@ namespace Project1
                 testButton.Enabled = true;
                 textBox1.Enabled = true;
                 textBox2.Enabled = true;
+                MessageBox.Show("Bağlanıldı.");
             }
             catch(Exception err)
             {
@@ -104,7 +105,7 @@ namespace Project1
                 progressBar1.Value = 0;
                 bagkesButton.Enabled = false;
                 baglanButton.Enabled = true;
-                MessageBox.Show("Bağlantı Kesildi.");
+               
                 
             }
             catch (Exception err)
