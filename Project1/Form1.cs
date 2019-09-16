@@ -131,7 +131,7 @@ namespace Project1
             var htmlDoc = web.Load(html);
             var node = htmlDoc.DocumentNode.SelectSingleNode("//td[@id='LC1']");
 
-            string ver = "1.0";
+            string ver = "1.1";
             
 
             if (node.OuterHtml.Contains(ver))
